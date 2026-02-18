@@ -1,0 +1,44 @@
+appId: com.vibewire.app
+productName: VIBEWIRE
+copyright: "Copyright 2026 0nlyX"
+
+directories:
+  output: dist
+  buildResources: electron
+
+files:
+  - ".next/**/*"
+  - "node_modules/**/*"
+  - "public/**/*"
+  - "data/**/*"
+  - "electron/**/*"
+  - "package.json"
+  - "next.config.mjs"
+
+win:
+  target:
+    - target: nsis
+      arch:
+        - x64
+
+nsis:
+  oneClick: false
+  allowToChangeInstallationDirectory: true
+  artifactName: "VIBEWIRE-Setup-${version}.${ext}"
+
+mac:
+  target:
+    - target: dmg
+      arch:
+        - x64
+        - arm64
+  category: public.app-category.utilities
+
+linux:
+  target:
+    - target: AppImage
+      arch:
+        - x64
+  category: Utility
+
+asar: false
